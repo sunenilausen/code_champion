@@ -41,6 +41,7 @@ group :test do
   gem "shoulda-matchers",  require: false
   gem 'simplecov', require: false
   gem 'timecop'
+  gem 'database_cleaner'
 end
 
 group :development, :test do
