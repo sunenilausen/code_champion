@@ -1,0 +1,35 @@
+.flash {
+    @extend .card-panel;
+    margin-top: 0;
+    border-radius: 0;
+
+    &.flash-success {
+        @extend .green, .white-text;
+    }
+
+    &.flash-info {
+        @extend .pirate-skyblue-bg, .white-text;
+    }
+
+    &.flash-notice {
+        @extend .pirate-skyblue-bg, .white-text;
+    }
+    
+    &.flash-warning {
+        @extend .pirate-orange-bg, .white-text;
+    }
+
+    &.flash-danger {
+        @extend .pirate-red-bg, .white-text;
+    }
+
+    &.flash-alert {
+        @extend .pirate-red-bg, .white-text;
+    }
+
+
+    .close {
+        margin-top: -0.5em;
+        color: white;
+    }
+}

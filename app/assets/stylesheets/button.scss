@@ -1,0 +1,27 @@
+.btn {
+  background-color: $pirate-skyblue;
+  &:hover {
+    background-color: $pirate-skyblue-light;
+  }
+}
+
+.btn-pirate-skyblue {
+  background-color: $pirate-skyblue;
+  &:hover {
+    background-color: $pirate-skyblue-light;
+  }
+}
+
+.btn-pirate-red {
+  background-color: $pirate-red;
+  &:hover {
+    background-color: $pirate-red-light;
+  }
+}
+
+.btn-pirate-orange {
+  background-color: $pirate-orange;
+  &:hover {
+    background-color: $pirate-orange-light;
+  }
+}
