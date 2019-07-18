@@ -14,6 +14,10 @@ class TestCaseSolution < ApplicationRecord
       JSON.parse(test_case.input)
     end
 
+    def parsed_output
+      JSON.parse(test_case.output)
+    end
+
     def test_wrapper(code)
       "
       input = #{parsed_input}
@@ -26,6 +30,6 @@ class TestCaseSolution < ApplicationRecord
     end
 
     def test_new_state
-      test_result.to_s == test_case.output ? :passing : :failing
+      test_result == parsed_output ? :passing : :failing
     end
 end
