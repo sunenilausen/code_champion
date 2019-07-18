@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :test_case_solutions
+  resources :problems
+  resources :solutions
+  resources :test_cases
   devise_for :users
   get 'home/index'
   root "home#index"

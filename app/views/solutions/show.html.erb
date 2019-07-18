@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Problem:</strong>
+  <%= @solution.problem %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @solution.user %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @solution.code %>
+</p>
+
+<h2>Tests</h2>
+
+<%= link_to 'Edit', edit_solution_path(@solution) %> |
+<%= link_to 'Back', solutions_path %>

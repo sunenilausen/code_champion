@@ -52,6 +52,7 @@ group :development, :test do
   gem 'letter_opener'
   gem "factory_bot_rails"
   gem 'faker'
+  gem 'rb-readline'
 end
 
 group :development do
@@ -77,11 +78,12 @@ gem 'jquery-rails'
 gem 'rails_admin'
 gem 'cancancan'
 gem 'font-awesome-rails'
-gem 'materialize-sass'
+gem 'materialize-sass', "0.100.2"
 gem 'paranoia'
 gem 'materialize-form'
 gem 'rails_admin_material'
 gem 'cocoon'
 gem 'ransack'
+gem "autoprefixer-rails"
 
 ruby "2.5.1"
