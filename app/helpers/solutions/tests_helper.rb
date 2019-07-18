@@ -1,0 +1,2 @@
+module Solutions::TestsHelper
+end

@@ -17,5 +17,11 @@
 
 <h2>Tests</h2>
 
+<%= link_to "Run Tests", tests_update_solution_path(@solution), remote: true %>
+
+<div id="test_case_solutions">
+  <%= render "test_case_solutions" %>
+</div>
+
 <%= link_to 'Edit', edit_solution_path(@solution) %> |
 <%= link_to 'Back', solutions_path %>

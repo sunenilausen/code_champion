@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  resources :test_case_solutions
+  resources :test_case_solutions, only: [:show, :update]
   resources :problems
-  resources :solutions
+  resources :solutions do
+    get "tests/update", on: :member, to: "solutions/tests#update", format: :js
+  end
   resources :test_cases
   devise_for :users
   get 'home/index'

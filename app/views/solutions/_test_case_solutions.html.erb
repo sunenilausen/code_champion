@@ -1,0 +1,8 @@
+<% @solution.test_case_solutions.each_with_index do |test_case_solution, i| %>
+  <p>
+    Test #<%= i %>
+  </p>
+  <p>
+    <strong>Status:<%= test_case_solution.status %></strong>
+  </p>
+<% end %>
