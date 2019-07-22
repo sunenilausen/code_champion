@@ -11,6 +11,7 @@ class SolutionsController < ApplicationController
 
   # GET /solutions/new
   def new
+    @solution.problem = Problem.find(params[:problem_id])
   end
 
   # GET /solutions/1/edit
@@ -19,6 +20,7 @@ class SolutionsController < ApplicationController
 
   # POST /solutions
   def create
+    @solution.user = current_user
     if @solution.save
       redirect_to @solution, notice: 'Solution was successfully created.'
     else
@@ -44,6 +46,6 @@ class SolutionsController < ApplicationController
   private
     # Only allow a trusted parameter "white list" through.
     def solution_params
-      params.require(:solution).permit(:problem_id, :user_id, :code)
+      params.require(:solution).permit(:problem_id, :code)
     end
 end
