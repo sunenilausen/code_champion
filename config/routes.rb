@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :test_case_solutions, only: [:show, :update]
   resources :problems do
     resources :test_cases
