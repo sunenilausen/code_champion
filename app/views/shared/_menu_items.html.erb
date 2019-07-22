@@ -7,6 +7,10 @@
 </li>
 
 <li>
+  <%= link_to 'Tournaments', tournaments_path, class: 'white-text' %>
+</li>
+
+<li>
   <% if current_user %>
     <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'white-text' %>
   <% else %>
