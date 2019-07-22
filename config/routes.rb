@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :test_case_solutions, only: [:show, :update]
-  resources :problems
+  resources :problems do
+    resources :test_cases
+  end
   resources :solutions do
     get "tests/update", on: :member, to: "solutions/tests#update", format: :js
   end

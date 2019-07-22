@@ -1,9 +1,8 @@
 class SolutionsController < ApplicationController
-  before_action :set_solution, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /solutions
   def index
-    @solutions = Solution.all
   end
 
   # GET /solutions/1
@@ -12,7 +11,6 @@ class SolutionsController < ApplicationController
 
   # GET /solutions/new
   def new
-    @solution = Solution.new
   end
 
   # GET /solutions/1/edit
@@ -21,8 +19,6 @@ class SolutionsController < ApplicationController
 
   # POST /solutions
   def create
-    @solution = Solution.new(solution_params)
-
     if @solution.save
       redirect_to @solution, notice: 'Solution was successfully created.'
     else
@@ -46,11 +42,6 @@ class SolutionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_solution
-      @solution = Solution.find(params[:id])
-    end
-
     # Only allow a trusted parameter "white list" through.
     def solution_params
       params.require(:solution).permit(:problem_id, :user_id, :code)

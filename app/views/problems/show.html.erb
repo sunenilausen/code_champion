@@ -5,5 +5,18 @@
   <%= @problem.title %>
 </p>
 
-<%= link_to 'Edit', edit_problem_path(@problem) %> |
-<%= link_to 'Back', problems_path %>
+<p>
+  <strong>Description:</strong>
+  <%= @problem.description %>  
+</p>
+
+<h2>Test cases</h2>
+<%= render "problems/test_cases/table", test_cases: @problem.test_cases %>
+
+<% if can? :edit, @problem %>
+  <div class="fixed-action-btn vertical">
+    <%= link_to edit_problem_path(@problem), class: 'btn-floating btn-large btn-pirate-red' do %>
+      <i class="large material-icons"> mode_edit </i>
+    <% end %>
+  </div>
+<% end %>
