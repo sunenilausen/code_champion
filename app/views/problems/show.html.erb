@@ -17,7 +17,7 @@
 <% if @problem_solution %>
   <%= link_to "Your Solution", solution_path(@problem_solution), class: "btn btn-pirate-skyblue" %>
 <% else %>
-  <%= link_to "Make Solution", new_solution_path(problem_id: @problem.id), class: "btn btn-pirate-green" %>
+  <%= link_to "Make Solution", new_solution_path(problem_id: @problem.id), class: "btn green" %>
 <% end %>
 
 <% if can? :edit, @problem %>
