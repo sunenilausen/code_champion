@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @tournament.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @tournament.description %>
+</p>
+
+<p>
+  <strong>Start at:</strong>
+  <%= @tournament.start_at %>
+</p>
+
+<p>
+  <strong>End at:</strong>
+  <%= @tournament.end_at %>
+</p>
+
+<% if can? :edit, @tournament %>
+  <div class="fixed-action-btn vertical">
+    <%= link_to edit_tournament_path(@tournament), class: 'btn-floating btn-large btn-pirate-red' do %>
+      <i class="large material-icons"> mode_edit </i>
+    <% end %>
+  </div>
+<% end %>
+

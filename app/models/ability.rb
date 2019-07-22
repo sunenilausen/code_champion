@@ -11,6 +11,7 @@ class Ability
         can :read, Problem
         can :create, Solution
         can :read, Solution, user_id: user.id
+        can :read, Tournament
         #can :read, Solution, public: true
     end
     # Define abilities for the passed in user here. For example:
