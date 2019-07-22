@@ -7,6 +7,7 @@ class ProblemsController < ApplicationController
 
   # GET /problems/1
   def show
+    @problem_solution = Solution.find_by(problem: @problem, user: current_user)
   end
 
   # GET /problems/new
