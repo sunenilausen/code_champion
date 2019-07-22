@@ -18,5 +18,12 @@
     <%= link_to edit_problem_path(@problem), class: 'btn-floating btn-large btn-pirate-red' do %>
       <i class="large material-icons"> mode_edit </i>
     <% end %>
+    <ul>
+      <li>
+        <%= link_to new_problem_test_case_path(@problem), class: "btn-floating green" do %>
+          <i class="material-icons"> add </i>
+        <% end %>
+      </li>
+    </ul>
   </div>
 <% end %>
