@@ -1,10 +1,6 @@
 class TestCasesController < ApplicationController
   before_action :set_test_case, only: [:show, :edit, :update, :destroy]
-
-  # GET /test_cases
-  def index
-    @test_cases = TestCase.all
-  end
+  before_action :set_problem, only: [:show, :edit, :update, :destroy]
 
   # GET /test_cases/1
   def show
@@ -22,6 +18,7 @@ class TestCasesController < ApplicationController
   # POST /test_cases
   def create
     @test_case = TestCase.new(test_case_params)
+    @test_case.problem = @problem
 
     if @test_case.save
       redirect_to @test_case, notice: 'Test case was successfully created.'
@@ -51,8 +48,12 @@ class TestCasesController < ApplicationController
       @test_case = TestCase.find(params[:id])
     end
 
+    def set_test_case
+      @test_case = TestCase.find(params[:id])
+    end
+
     # Only allow a trusted parameter "white list" through.
     def test_case_params
-      params.require(:test_case).permit(:problem_id, :input, :output)
+      params.require(:test_case).permit(:input, :output)
     end
 end
