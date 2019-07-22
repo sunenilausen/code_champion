@@ -1,0 +1,15 @@
+<li>
+  <%= link_to 'Problems', problems_path, class: 'white-text' %>
+</li>
+
+<li>
+  <%= link_to 'Solutions', solutions_path, class: 'white-text' %>
+</li>
+
+<li>
+  <% if current_user %>
+    <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'white-text' %>
+  <% else %>
+    <%= link_to 'Sign in', new_user_session_path, class: 'white-text' %>
+  <% end %>
+</li>
