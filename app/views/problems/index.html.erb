@@ -6,4 +6,10 @@
 
 <br>
 
-<%= link_to 'New Problem', new_problem_path %>
+<% if can? :create, Problem %>
+  <div class="fixed-action-btn vertical">
+    <%= link_to new_problem_path, class: 'btn-floating btn-large green' do %>
+      <i class="large material-icons"> add </i>
+    <% end %>
+  </div>
+<% end %>
