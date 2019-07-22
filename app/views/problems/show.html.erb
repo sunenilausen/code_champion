@@ -13,6 +13,13 @@
 <h2>Test cases</h2>
 <%= render "test_cases/table", test_cases: @problem.test_cases %>
 
+<br>
+<% if @problem_solution %>
+  <%= link_to "Your Solution", solution_path(@problem_solution), class: "btn btn-pirate-skyblue" %>
+<% else %>
+  <%= link_to "Make Solution", new_solution_path(problem_id: @problem.id), class: "btn btn-pirate-green" %>
+<% end %>
+
 <% if can? :edit, @problem %>
   <div class="fixed-action-btn vertical">
     <%= link_to edit_problem_path(@problem), class: 'btn-floating btn-large btn-pirate-red' do %>
