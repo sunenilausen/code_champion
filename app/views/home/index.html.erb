@@ -1,2 +1,8 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>Welcome</h1>
+<h5>On this site you can solve code problems/puzzles!</h5>
+<h5>Simply sign up, go to problems and create a solution</h5>
+
+<section>
+  <h2> Recent Problems </h2>
+  <%= render "problems/table", problems: @recent_problems %>
+</section>
