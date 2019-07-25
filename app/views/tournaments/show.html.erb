@@ -20,6 +20,9 @@
   <%= @tournament.end_at %>
 </p>
 
+<h1>Problems</h1>
+<%= render "problems/table", problems: @tournament.problems %>
+
 <% if can? :edit, @tournament %>
   <div class="fixed-action-btn vertical">
     <%= link_to edit_tournament_path(@tournament), class: 'btn-floating btn-large btn-pirate-red' do %>

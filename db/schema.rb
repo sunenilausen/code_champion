@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_22_221222) do
+ActiveRecord::Schema.define(version: 2019_07_22_223314) do
 
   create_table "problems", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "description"
+    t.integer "tournament_id"
+    t.index ["tournament_id"], name: "index_problems_on_tournament_id"
   end
 
   create_table "solutions", force: :cascade do |t|
