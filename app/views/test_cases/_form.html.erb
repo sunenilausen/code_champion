@@ -1,9 +1,10 @@
 
-<%= simple_form_for(@test_case) do |f| %>
+<%= simple_form_for([@problem, @test_case]) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
+    <%#= f.association :problem, value: @test_case.problem %>
     <%= f.input :input %>
     <%= f.input :output %>
   </div>

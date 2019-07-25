@@ -15,5 +15,5 @@
   <%= @test_case.output %>
 </p>
 
-<%= link_to 'Edit', edit_test_case_path(@test_case) %> |
-<%= link_to 'Back', test_cases_path %>
+<%= link_to 'Edit', edit_problem_test_case_path([@problem, @test_case]) %> |
+<%= link_to 'Back', problem_path(@problem) %>
