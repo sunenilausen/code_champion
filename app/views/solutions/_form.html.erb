@@ -5,10 +5,17 @@
 
   <div class="form-inputs">
     <%= f.association :problem, value: @solution.problem %>
-    <%= f.input :code %>
+    <%= f.hidden_field :code %>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
 <% end %>
+
+<pre id="code-editor" style="height: 150px;">def stuff(a: 1)
+  return a * a
+end
+
+stuff(3).to_json
+</pre>
