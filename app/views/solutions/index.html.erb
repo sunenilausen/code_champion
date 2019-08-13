@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Problem</th>
+      <th>Test Status</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,6 +15,7 @@
     <% @solutions.each do |solution| %>
       <tr>
         <td><%= solution.problem.title %></td>
+        <td><%= solution.test_status %></td>
         <td><%= link_to 'Show', solution %></td>
         <td><%= link_to 'Edit', edit_solution_path(solution) %></td>
         <td><%= link_to 'Destroy', solution, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -9,6 +9,12 @@ class Solution < ApplicationRecord
     test_case_solutions.each(&:run_test)
   end
 
+  def test_status
+    return "untested".freeze if test_case_solutions.map(&:status).include?("untested")
+    return "failing".freeze if test_case_solutions.map(&:status).include?("failing")
+    "passing".freeze
+  end
+
   private
     def create_test_case_solutions
       problem.test_cases.each do |test_case|
