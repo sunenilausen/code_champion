@@ -2,7 +2,7 @@
 
 <p>
   <strong>Problem:</strong>
-  <%= @test_case.problem %>
+  <%= link_to "##{@test_case.problem.id} - #{@test_case.problem.title}", problem_path(@problem) %>
 </p>
 
 <p>
@@ -15,5 +15,10 @@
   <%= @test_case.output %>
 </p>
 
-<%= link_to 'Edit', edit_problem_test_case_path([@problem, @test_case]) %> |
-<%= link_to 'Back', problem_path(@problem) %>
+<% if can? :edit, @test_case %>
+  <div class="fixed-action-btn vertical">
+    <%= link_to edit_problem_test_case_path([@problem, @test_case]), class: 'btn-floating btn-large btn-pirate-red' do %>
+      <i class="large material-icons"> mode_edit </i>
+    <% end %>
+  </div>
+<% end %>
