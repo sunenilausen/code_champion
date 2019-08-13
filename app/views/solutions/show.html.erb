@@ -2,7 +2,7 @@
 
 <p>
   <strong>Problem:</strong>
-  <%= @solution.problem.title %>
+  <%= link_to "##{@solution.problem.id} - #{@solution.problem.title}", problem_path(@solution.problem) %>
 </p>
 
 <p>
