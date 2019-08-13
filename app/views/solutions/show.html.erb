@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Problem:</strong>
   <%= link_to "##{@solution.problem.id} - #{@solution.problem.title}", problem_path(@solution.problem) %>
@@ -9,8 +7,20 @@
   <strong>Code:</strong>
 </p>
 <pre id="code-editor" class="code-editor">
+  <% if @solution.code.blank? %>
+#Parse the input variable and return a new result
+#puts input
+  <% else %>
 <%= @solution.code %>
+  <% end %>
 </pre>
+
+<%= simple_form_for(@solution) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <%= f.hidden_field :code %>
+  <%= f.button :submit %>
+<% end %>
 
 <h2>Tests</h2>
 

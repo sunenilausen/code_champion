@@ -9,22 +9,13 @@ class SolutionsController < ApplicationController
   def show
   end
 
-  # GET /solutions/new
-  def new
-    @solution.problem = Problem.find(params[:problem_id])
-  end
-
-  # GET /solutions/1/edit
-  def edit
-  end
-
   # POST /solutions
   def create
     @solution.user = current_user
     if @solution.save
       redirect_to @solution, notice: 'Solution was successfully created.'
     else
-      render :new
+      redirect_to @problem
     end
   end
 
@@ -33,7 +24,7 @@ class SolutionsController < ApplicationController
     if @solution.update(solution_params)
       redirect_to @solution, notice: 'Solution was successfully updated.'
     else
-      render :edit
+      render :show
     end
   end
 
