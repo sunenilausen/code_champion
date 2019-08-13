@@ -1,8 +1,12 @@
 <% @solution.test_case_solutions.each_with_index do |test_case_solution, i| %>
-  <p>
+  <strong>
     Test #<%= i %>
-  </p>
+  </strong>
   <p>
-    <strong>Status:<%= test_case_solution.status %></strong>
+    Actual Output: <%= test_case_solution.output %>
+  </p>
+  <p>Expected Output: <%= test_case_solution.test_case.output %></p>
+  <p>
+    Status:<%= test_case_solution.status %>
   </p>
 <% end %>

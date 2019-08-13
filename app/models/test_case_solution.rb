@@ -26,7 +26,9 @@ class TestCaseSolution < ApplicationRecord
     end
 
     def test_result
-      eval(test_wrapper(solution.code))
+      result = eval(test_wrapper(solution.code))
+      self.output = result
+      result
     end
 
     def test_new_state

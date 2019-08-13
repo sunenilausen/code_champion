@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_22_223314) do
+ActiveRecord::Schema.define(version: 2019_08_13_203437) do
 
   create_table "problems", force: :cascade do |t|
     t.string "title"
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 2019_07_22_223314) do
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "output"
+    t.text "log"
     t.index ["solution_id"], name: "index_test_case_solutions_on_solution_id"
     t.index ["test_case_id"], name: "index_test_case_solutions_on_test_case_id"
   end
