@@ -1,6 +1,6 @@
 <h1>Editing Test Case</h1>
 
 <%= render 'form', test_case: @test_case %>
-
-<%= link_to 'Show', @test_case %> |
-<%= link_to 'Back', problem_path(@test_case.problem) %>
+<div class="small-br"></div>
+<%= link_to 'Show', [@problem, @test_case], class: "btn btn-pirate-skyblue" %>
+<%= link_to 'Back', problem_path(@test_case.problem), class: "btn btn-pirate-skyblue" %>
