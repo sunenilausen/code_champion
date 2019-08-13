@@ -1,6 +1,9 @@
 <h1>Welcome</h1>
 <h5>On this site you can solve code problems/puzzles!</h5>
-<h5>Simply sign up, go to problems and create a solution</h5>
+<h5>Simply sign up/in, go to problems and create a solution</h5>
+<% unless current_user %>
+  <%= link_to "Sign up", new_registration_path(User.new), class: "btn waves-effect waves-light btn-pirate-orange" %>
+<% end %>
 
 <section>
   <h2> Recent Problems </h2>
