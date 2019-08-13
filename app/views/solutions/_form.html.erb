@@ -13,9 +13,11 @@
   </div>
 <% end %>
 
-<pre id="code-editor" style="height: 150px;">def stuff(a: 1)
-  return a * a
-end
-
-stuff(3).to_json
+<pre id="code-editor" style="height: 150px;">
+  <% if @solution.code.blank? %>
+#Parse the input variable and return a new result
+puts input
+  <% else %>
+<%= @solution.code %>
+  <% end %>
 </pre>
