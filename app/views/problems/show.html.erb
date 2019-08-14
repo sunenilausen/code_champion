@@ -14,13 +14,15 @@
 <br>
 <% if @problem_solution %>
   <%= link_to "Your Solution", solution_path(@problem_solution), class: "btn btn-pirate-skyblue" %>
-<% else %>
+<% elsif current_user %>
   <%= simple_form_for(Solution.new) do |f| %>
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
     <%= f.hidden_field :problem_id, value: @problem.id, class: "hidden" %>
     <%= f.button :submit %>
   <% end %>
+<% else %>
+  Sign up/in to make a solution!
 <% end %>
 
 <% if can? :edit, @problem %>
