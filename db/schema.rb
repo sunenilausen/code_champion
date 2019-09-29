@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_13_203437) do
+ActiveRecord::Schema.define(version: 2019_09_28_174857) do
+
+  create_table "eval_servers", force: :cascade do |t|
+    t.string "ip_address"
+    t.string "port"
+    t.integer "language", default: 0
+    t.integer "status", default: 0
+    t.integer "response_time"
+    t.datetime "last_response"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "problems", force: :cascade do |t|
     t.string "title"
