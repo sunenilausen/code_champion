@@ -2,6 +2,6 @@ FactoryBot.define do
   factory :solution do
     problem
     user
-    code { "MyText" }
+    code { "input" }
   end
 end
