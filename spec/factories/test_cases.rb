@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :test_case do
-    problem { nil }
+    problem
     input { "" }
     output { "" }
   end

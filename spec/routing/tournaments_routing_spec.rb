@@ -18,7 +18,6 @@ RSpec.describe TournamentsController, type: :routing do
       expect(:get => "/tournaments/1/edit").to route_to("tournaments#edit", :id => "1")
     end
 
-
     it "routes to #create" do
       expect(:post => "/tournaments").to route_to("tournaments#create")
     end

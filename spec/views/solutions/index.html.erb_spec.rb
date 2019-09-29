@@ -3,16 +3,8 @@ require 'rails_helper'
 RSpec.describe "solutions/index", type: :view do
   before(:each) do
     assign(:solutions, [
-      Solution.create!(
-        :problem => nil,
-        :user => nil,
-        :code => "MyText"
-      ),
-      Solution.create!(
-        :problem => nil,
-        :user => nil,
-        :code => "MyText"
-      )
+      create(:solution),
+      create(:solution)
     ])
   end
 

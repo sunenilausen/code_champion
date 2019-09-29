@@ -2,11 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "test_cases/show", type: :view do
   before(:each) do
-    @test_case = assign(:test_case, TestCase.create!(
-      :problem => nil,
-      :input => "",
-      :output => ""
-    ))
+    @test_case = create :test_case
   end
 
   it "renders attributes in <p>" do

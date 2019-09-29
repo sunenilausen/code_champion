@@ -2,11 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "solutions/show", type: :view do
   before(:each) do
-    @solution = assign(:solution, Solution.create!(
-      :problem => nil,
-      :user => nil,
-      :code => "MyText"
-    ))
+    @solution = create :solution
   end
 
   it "renders attributes in <p>" do
