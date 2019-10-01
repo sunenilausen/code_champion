@@ -85,5 +85,6 @@ gem 'rails_admin_material'
 gem 'cocoon'
 gem 'ransack'
 gem "autoprefixer-rails"
+gem 'httparty'
 
 ruby "2.5.1"

@@ -2,7 +2,7 @@ class TestCaseSolution < ApplicationRecord
   belongs_to :solution
   belongs_to :test_case
 
-  enum status: [:untested, :failing, :passing]
+  enum status: [:untested, :failing, :passing, :server_unavailable]
 
   def run_test
     self.status = test_new_state
@@ -10,28 +10,26 @@ class TestCaseSolution < ApplicationRecord
   end
 
   private
-    def parsed_input
-      JSON.parse(test_case.input)
-    end
-
-    def parsed_output
-      JSON.parse(test_case.output)
-    end
-
-    def test_wrapper(code)
-      "
-      input = #{parsed_input}
-      #{code}
-      "
-    end
-
     def test_result
-      result = eval(test_wrapper(solution.code))
-      self.output = result
-      result
+      data = JSON.parse HTTParty.post(server_with_language.url + "/eval", body: server_body.to_json, headers: server_headers) 
+      self.output = data["actual_output"]
+      data
+    end
+
+    def server_with_language
+      EvalServer.find_by(language: solution.language)
+    end
+
+    def server_body 
+      {code: solution.code, test_input: test_case.input, expected_output: test_case.output}
+    end
+
+    def server_headers
+      { 'Content-Type' => 'application/json' }
     end
 
     def test_new_state
-      test_result == parsed_output ? :passing : :failing
+      return :no_server_available unless server_with_language.present?
+      test_result["status"] == "passed" ? :passing : :failing
     end
 end

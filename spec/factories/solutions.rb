@@ -3,5 +3,6 @@ FactoryBot.define do
     problem
     user
     code { "input" }
+    language { :ruby }
   end
 end
