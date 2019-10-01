@@ -5,6 +5,8 @@ class Solution < ApplicationRecord
 
   after_create :create_test_case_solutions
 
+  enum language: [:ruby, :javascript, :python]
+
   def run_tests
     test_case_solutions.each(&:run_test)
   end
