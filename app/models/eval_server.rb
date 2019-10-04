@@ -2,7 +2,8 @@ class EvalServer < ApplicationRecord
   enum language: [
     :ruby,
     :javascript,
-    :python
+    :python3,
+    :python2
   ]
 
   enum status: [
