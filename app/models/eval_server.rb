@@ -1,10 +1,5 @@
 class EvalServer < ApplicationRecord
-  enum language: [
-    :ruby,
-    :javascript,
-    :python3,
-    :python2
-  ]
+  belongs_to :language
 
   enum status: [
     :ok,

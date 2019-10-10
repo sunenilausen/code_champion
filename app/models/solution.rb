@@ -1,11 +1,10 @@
 class Solution < ApplicationRecord
   belongs_to :problem
   belongs_to :user
+  belongs_to :language
   has_many :test_case_solutions, dependent: :destroy
 
   after_create :create_test_case_solutions
-
-  enum language: [:ruby, :javascript, :python]
 
   def run_tests
     test_case_solutions.each(&:run_test)

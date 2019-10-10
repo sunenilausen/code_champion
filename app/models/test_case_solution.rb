@@ -11,13 +11,13 @@ class TestCaseSolution < ApplicationRecord
 
   private
     def test_result
-      data = JSON.parse HTTParty.post(server_with_language.url + "/eval", body: server_body.to_json, headers: server_headers) 
+      data = JSON.parse HTTParty.post(server_with_language.url + "/eval", body: server_body.to_json, headers: server_headers).body 
       self.output = data["actual_output"]
       data
     end
 
     def server_with_language
-      EvalServer.find_by(language: solution.language)
+      solution.language.eval_servers.find_by(status: :ok)
     end
 
     def server_body 
@@ -29,7 +29,7 @@ class TestCaseSolution < ApplicationRecord
     end
 
     def test_new_state
-      return :no_server_available unless server_with_language.present?
+      return :server_unavailable if server_with_language.nil?
       test_result["status"] == "passed" ? :passing : :failing
     end
 end

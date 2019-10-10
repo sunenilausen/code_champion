@@ -15,13 +15,21 @@ ActiveRecord::Schema.define(version: 2019_10_10_225438) do
   create_table "eval_servers", force: :cascade do |t|
     t.string "ip_address"
     t.string "port"
-    t.integer "language", default: 0
     t.integer "status", default: 0
     t.integer "response_time"
     t.datetime "last_response"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "language_id"
     t.boolean "ssl", default: true
+    t.index ["language_id"], name: "index_eval_servers_on_language_id"
+  end
+
+  create_table "languages", force: :cascade do |t|
+    t.string "name"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "problems", force: :cascade do |t|
@@ -39,7 +47,8 @@ ActiveRecord::Schema.define(version: 2019_10_10_225438) do
     t.text "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "language", default: 0
+    t.integer "language_id"
+    t.index ["language_id"], name: "index_solutions_on_language_id"
     t.index ["problem_id"], name: "index_solutions_on_problem_id"
     t.index ["user_id"], name: "index_solutions_on_user_id"
   end

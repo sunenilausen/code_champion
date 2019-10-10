@@ -12,10 +12,11 @@ class SolutionsController < ApplicationController
   # POST /solutions
   def create
     @solution.user = current_user
+    @solution.language = Language.first
     if @solution.save
       redirect_to @solution, notice: 'Solution was successfully created.'
     else
-      redirect_to @problem
+      redirect_to @solution.problem, notice: @solution.errors.messages
     end
   end
 
@@ -37,6 +38,6 @@ class SolutionsController < ApplicationController
   private
     # Only allow a trusted parameter "white list" through.
     def solution_params
-      params.require(:solution).permit(:problem_id, :code)
+      params.require(:solution).permit(:problem_id, :code, :language_id)
     end
 end
