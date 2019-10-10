@@ -12,12 +12,15 @@ class EvalServer < ApplicationRecord
   ]
 
   def url
-    "http://#{ip_address}#{colon_port}"
+    "http#{secure}://#{ip_address}#{colon_port}"
   end
 
   private
     def colon_port
-      return "" unless port.present?
-      ":#{port}"
+      port.present? ? ":#{port}" : ""
+    end
+
+    def secure
+      ssl ? "s" : ""
     end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_29_213351) do
+ActiveRecord::Schema.define(version: 2019_10_10_225438) do
 
   create_table "eval_servers", force: :cascade do |t|
     t.string "ip_address"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_09_29_213351) do
     t.datetime "last_response"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "ssl", default: true
   end
 
   create_table "problems", force: :cascade do |t|
