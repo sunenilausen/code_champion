@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_10_225438) do
+ActiveRecord::Schema.define(version: 2019_11_03_145943) do
 
   create_table "eval_servers", force: :cascade do |t|
     t.string "ip_address"
@@ -41,17 +41,8 @@ ActiveRecord::Schema.define(version: 2019_10_10_225438) do
     t.index ["tournament_id"], name: "index_problems_on_tournament_id"
   end
 
-  create_table "solutions", force: :cascade do |t|
-    t.integer "problem_id"
-    t.integer "user_id"
-    t.text "code"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "language_id"
-    t.index ["language_id"], name: "index_solutions_on_language_id"
-    t.index ["problem_id"], name: "index_solutions_on_problem_id"
-    t.index ["user_id"], name: "index_solutions_on_user_id"
-  end
+# Could not dump table "solutions" because of following StandardError
+#   Unknown type 'block_editor' for column 'boolean'
 
   create_table "test_case_solutions", force: :cascade do |t|
     t.integer "solution_id"

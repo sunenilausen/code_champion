@@ -15,11 +15,16 @@
   <% end %>
 </pre>
 
+<% if @solution.block_editor? %>
+  <%= render "block_editor" %>
+<% end %>
+
 <%= simple_form_for(@solution) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
   <%= f.hidden_field :code %>
   <%= f.association :language, include_blank: false %>
+  <%= f.input :block_editor %>
   <%= f.button :submit %>
 <% end %>
 

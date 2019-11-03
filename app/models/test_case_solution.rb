@@ -11,7 +11,10 @@ class TestCaseSolution < ApplicationRecord
 
   private
     def test_result
-      data = JSON.parse HTTParty.post(server_with_language.url + "/eval", body: server_body.to_json, headers: server_headers).body 
+      data = JSON.parse HTTParty.post(server_with_language.url + "/eval", body: server_body.to_json, headers: server_headers).body
+      warn ""
+      warn data.inspect 
+      warn ""
       self.output = data["actual_output"]
       data
     end

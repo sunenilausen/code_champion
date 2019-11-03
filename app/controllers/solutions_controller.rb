@@ -38,6 +38,6 @@ class SolutionsController < ApplicationController
   private
     # Only allow a trusted parameter "white list" through.
     def solution_params
-      params.require(:solution).permit(:problem_id, :code, :language_id)
+      params.require(:solution).permit(:problem_id, :code, :language_id, :block_editor)
     end
 end
