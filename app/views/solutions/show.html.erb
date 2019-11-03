@@ -25,6 +25,7 @@
   <%= f.hidden_field :code %>
   <%= f.association :language, include_blank: false %>
   <%= f.input :block_editor %>
+  <%= f.hidden_field :block_xml %>
   <%= f.button :submit %>
 <% end %>
 

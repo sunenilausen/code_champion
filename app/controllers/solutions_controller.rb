@@ -13,6 +13,7 @@ class SolutionsController < ApplicationController
   def create
     @solution.user = current_user
     @solution.language = Language.first
+    @solution.block_xml = Solution::DEFAULT_BLOCK_XML
     if @solution.save
       redirect_to @solution, notice: 'Solution was successfully created.'
     else
@@ -38,6 +39,6 @@ class SolutionsController < ApplicationController
   private
     # Only allow a trusted parameter "white list" through.
     def solution_params
-      params.require(:solution).permit(:problem_id, :code, :language_id, :block_editor)
+      params.require(:solution).permit(:problem_id, :code, :language_id, :block_editor, :block_xml)
     end
 end

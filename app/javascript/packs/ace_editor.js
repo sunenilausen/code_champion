@@ -23,11 +23,14 @@ $(document).on('turbolinks:load', function() {
 
     if ($("#blocklyDiv").length > 0) {
       var workspace = Blockly.inject('blocklyDiv', {media: '../../media/', toolbox: document.getElementById('toolbox')});
-      Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'),workspace);
+      var xml = Blockly.Xml.textToDom($('#solution_block_xml').val());
+      Blockly.Xml.domToWorkspace(xml, workspace);
 
       function myUpdateFunction(event) {
         var code = Blockly.JavaScript.workspaceToCode(workspace);
-        // $('#demoTextArea').val(code);
+        var new_xml = Blockly.Xml.workspaceToDom(workspace);
+        var xml_text = Blockly.Xml.domToText(new_xml);
+        $("#solution_block_xml").val(xml_text)
         editor.session.setValue(code)
       }
       workspace.addChangeListener(myUpdateFunction);

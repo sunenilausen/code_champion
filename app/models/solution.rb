@@ -1,4 +1,5 @@
 class Solution < ApplicationRecord
+  DEFAULT_BLOCK_XML = "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"M]7C3TsKJ3bRAX`ne-7:\">output</variable><variable id=\"^Vp(/O1bTevV}H^ieaSB\">input</variable></variables><block type=\"variables_set\" id=\"Ua!|:nI}|a#M.#kH$05.\" x=\"29\" y=\"61\"><field name=\"VAR\" id=\"M]7C3TsKJ3bRAX`ne-7:\">output</field><value name=\"VALUE\"><block type=\"variables_get\" id=\"}/r2FVe*nER`rpbf=~nu\"><field name=\"VAR\" id=\"^Vp(/O1bTevV}H^ieaSB\">input</field></block></value></block></xml>"
   belongs_to :problem
   belongs_to :user
   belongs_to :language
