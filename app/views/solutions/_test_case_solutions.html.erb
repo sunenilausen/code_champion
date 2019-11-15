@@ -1,12 +1,22 @@
-<% @solution.test_case_solutions.each_with_index do |test_case_solution, i| %>
-  <strong>
-    Test #<%= i %>
-  </strong>
-  <p>
-    Actual Output: <%= test_case_solution.output %>
-  </p>
-  <p>Expected Output: <%= test_case_solution.test_case.output %></p>
-  <p>
-    Status:<%= test_case_solution.status %>
-  </p>
-<% end %>
+<div class="row">
+  <% @solution.test_case_solutions.each_with_index do |test_case_solution, i| %>
+    <div class="col s4">
+      <div class="card">
+        <div class="card-content white-text <%= test_case_solution.status == 'failing' ? 'red' : 'green' %>">
+          <strong>
+            Test #<%= i %> - <%= test_case_solution.status %>
+          </strong>
+        </div>
+        <div class="card-content">
+          <table class="table">
+            <tbody>
+              <tr><td><strong>Input</strong></td><td><%= test_case_solution.test_case.input %></td></tr>
+              <tr><td><strong>Expected Output</strong></td><td><%= test_case_solution.test_case.output %></td></tr>
+              <tr><td><strong>Actual Output</strong></td><td><%= test_case_solution.output %></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
