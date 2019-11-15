@@ -1,0 +1,31 @@
+<div class="card">
+  <div class="card-content">
+    <strong><%= link_to problem.title, problem, class: "black-text" %><strong>
+  </div>
+  <div class="card-tabs">
+    <ul class="tabs tabs-fixed-width">
+      <% problem.test_cases.each_with_index do |test_case, i| %>
+        <li class="tab">
+          <a 
+          <% if i == 0 %>
+            class="active" 
+          <% end %>
+          href="#problem_<%= problem.id %>_test_case_<%= i %>">
+          Test #<%= i %>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="card-content grey lighten-4">
+    <% problem.test_cases.each_with_index do |test_case, i| %>
+      <div id="problem_<%= problem.id %>_test_case_<%= i %>"><%= test_case.input %> => <%= test_case.output %></div>
+    <% end %>
+  </div>
+  <% if can? :edit, problem %>
+    <div class="card-action">
+      <%= link_to 'Edit', edit_problem_path(problem), class: "btn orange" %>
+      <%= link_to 'Destroy', problem, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-pirate-red" %>
+    </div>
+  <% end %>
+</div>

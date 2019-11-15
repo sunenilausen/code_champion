@@ -1,6 +1,12 @@
 <h1>Problems</h1>
 
-<%= render "table", problems: @problems %>
+<div class="row">
+  <% @problems.each do |problem| %>
+    <div class="col s12 m6 xl4">
+      <%= render "card", problem: problem %>
+    </div>
+  <% end %>
+</div>
 
 <br>
 
