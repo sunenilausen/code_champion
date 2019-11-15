@@ -16,7 +16,7 @@
         <td><%= test_case.output %></td>
         <% if can? :edit, @problem %>
           <td><%= link_to 'Show', [@problem, test_case] %></td>
-          <td><%= link_to 'Edit', edit_problem_test_case_path([@problem, test_case]) %></td>
+          <td><%= link_to 'Edit', edit_problem_test_case_path(problem_id: @problem.id, id: test_case.id) %></td>
           <td><%= link_to 'Destroy', [@problem, test_case], method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
