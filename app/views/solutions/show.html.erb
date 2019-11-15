@@ -26,7 +26,13 @@
   <%= f.association :language, include_blank: false %>
   <%= f.input :block_editor %>
   <%= f.hidden_field :block_xml %>
-  <%= f.button :submit %>
+  <% if can? :update, @solution %>
+    <div class="fixed-action-btn vertical">
+      <button type="submit" class= "btn-floating btn-large btn-pirate-skyblue">
+        <i class="large material-icons"> save </i>
+      </button>
+    </div>
+  <% end %>
 <% end %>
 
 <h2>Tests</h2>
@@ -36,11 +42,3 @@
 <div id="test_case_solutions">
   <%= render "test_case_solutions" %>
 </div>
-
-<% if can? :edit, @solution %>
-  <div class="fixed-action-btn vertical">
-    <%= link_to edit_solution_path(@solution), class: 'btn-floating btn-large btn-pirate-red' do %>
-      <i class="large material-icons"> mode_edit </i>
-    <% end %>
-  </div>
-<% end %>
