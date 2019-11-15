@@ -1,11 +1,10 @@
+<h1>
+  <%= link_to "#{@solution.problem.title}", problem_path(@solution.problem), class: "black-text" %>
+</h1>
 <p>
-  <strong>Problem:</strong>
-  <%= link_to "##{@solution.problem.id} - #{@solution.problem.title}", problem_path(@solution.problem) %>
+  <%= @solution.problem.description %>
 </p>
 
-<p>
-  <strong>Code:</strong>
-</p>
 <pre id="code-editor" class="code-editor">
   <% if @solution.code.blank? %>
 #Parse the input variable and return a new result
@@ -34,8 +33,6 @@
     </div>
   <% end %>
 <% end %>
-
-<h2>Tests</h2>
 
 <%= link_to "Run Tests", tests_update_solution_path(@solution), class: 'btn btn-pirate-skyblue', remote: true %>
 
